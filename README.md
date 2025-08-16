@@ -6,6 +6,10 @@ Transform simple ideas into platform-optimized social media content across Faceb
 
 Built with Make.com workflows, OpenAI APIs, and social media integrations, this system processes multiple content ideas simultaneously while maintaining consistent brand voice across all platforms.
 
+## 🏗️ Complete Automation Workflow
+
+![Complete Make.com Workflow](screenshots/make-com-workflow-overview.jpeg)
+
 ## ✨ Features
 
 - **AI Content Generation** using OpenAI GPT-4 for platform-specific optimization
@@ -34,7 +38,7 @@ Built with Make.com workflows, OpenAI APIs, and social media integrations, this 
 
 ## 🏗️ Architecture
 
-![Complete Make.com Workflow](screenshots/make-com-workflow-overview.jpeg)
+The complete workflow architecture is shown above in the automation diagram.
 
 ## 🚦 Quick Start
 
