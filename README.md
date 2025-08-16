@@ -34,26 +34,7 @@ Built with Make.com workflows, OpenAI APIs, and social media integrations, this 
 
 ## 🏗️ Architecture
 
-![Complete Make.com Workflow](screenshots/make-com-workflow-overview.jpg)
-
-**High-Level Data Flow:**
-```
-Google Sheets Input → Make.com Workflow → AI Processing → Multi-Platform Publishing
-
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Google Sheets │───▶│   Make.com       │───▶│  Social Media   │
-│   • Ideas Input │    │   • Route Logic  │    │  • Facebook     │
-│   • Control     │    │   • AI Calls     │    │  • Instagram    │
-│   • Status      │    │   • Image Gen    │    │  • LinkedIn     │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
-                              │
-                              ▼
-                       ┌──────────────────┐
-                       │    OpenAI API    │
-                       │   • GPT-4        │
-                       │   • DALL-E 3     │
-                       └──────────────────┘
-```
+![Complete Make.com Workflow](screenshots/make-com-workflow-overview.jpeg)
 
 ## 🚦 Quick Start
 
