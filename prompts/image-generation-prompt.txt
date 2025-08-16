@@ -1,0 +1,38 @@
+**Concise Social Media Image Generation Prompt**
+
+Generate a 1080x1080 pixel square image for social media:
+
+**VISUAL STYLE:**
+Clean, modern, approachable design. Minimalist aesthetic with friendly professional edge. Use soft blues (#3B82F6), clean whites (#F8FAFC), and warm orange accents (#F97316).
+
+**DESIGN ELEMENTS:**
+- Simple geometric shapes or subtle gradients
+- Plenty of white space for breathing room
+- Professional yet approachable typography if text is included
+- Avoid clutter - focus on 1-2 key visual elements
+
+**TEXT GUIDELINES:**
+- Minimize text - use only essential keywords or short phrases
+- If text is needed, use clean, modern sans-serif fonts
+- Ensure high contrast for mobile readability
+- Keep text size large enough for small screens
+
+**MOOD:**
+Optimistic, innovative, trustworthy, and accessible. Should feel like content from a knowledgeable professional who shares practical insights.
+
+**CONTENT FOCUS:**
+Based on this topic: [CONTENT_IDEA_VARIABLE]
+
+Create a visually engaging image that subtly represents this concept without being literal or text-heavy. Focus on modern, clean design that would work well across Facebook, Instagram, and LinkedIn.
+
+**TECHNICAL SPECIFICATIONS:**
+- Dimensions: 1024x1024 pixels (square format)
+- Quality: Standard (cost-optimized)
+- Style: Vivid (enhanced for social media)
+- Format: PNG with transparency support where applicable
+
+**BRAND CONSISTENCY:**
+- Maintain professional yet approachable aesthetic
+- Use consistent color palette across all generated images
+- Ensure visual coherence with automation/technology themes
+- Avoid overly corporate or sterile designs

@@ -1,0 +1,197 @@
+{
+  "openai_gpt4_response": {
+    "id": "chatcmpl-8abc123DEF456ghi789",
+    "object": "chat.completion",
+    "created": 1705321803,
+    "model": "gpt-4-1106-preview",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"Facebook_Post_Content\": \"AI coding assistants are reshaping how we write code, but they're not replacing developers—they're making us more efficient. 🤖\\n\\nAfter spending 6 months studying automation workflows, I've learned that these tools handle repetitive tasks while developers focus on architecture, problem-solving, and creative solutions. The fear of job displacement is understandable, but the reality is more nuanced.\\n\\nThink of it like calculators didn't eliminate mathematicians—they freed them to tackle more complex problems. AI assistants are becoming our coding calculators.\\n\\nThe key is adapting our skills. Learning to work WITH these tools, not against them.\\n\\nWhat's your experience with AI coding tools? Are you finding they help or hinder your development process? 💭\",\n  \"Instagram_Post_Content\": \"AI coding assistants: threat or opportunity? 🤔\\n\\n6 months of automation research taught me that these tools amplify human creativity rather than replace it. While AI handles the repetitive stuff, developers focus on architecture and innovation. ⚡\\n\\nThe future isn't about competing with AI—it's about collaborating with it.\\n\\nReady to adapt and evolve? 🚀\\n\\n#AICoding #DeveloperLife #Automation #TechTrends #CodeAssistants #FutureOfWork #SoftwareDevelopment #AI #Programming #TechInnovation #Productivity #Learning\",\n  \"LinkedIn_Post_Content\": \"AI coding assistants are transforming software development, but not in the way many developers fear.\\n\\nAfter extensive research into automation workflows, I've observed that these tools excel at handling repetitive, boilerplate code generation. This frees developers to focus on:\\n\\n• System architecture and design decisions\\n• Complex problem-solving and debugging\\n• Code review and optimization\\n• Strategic technology choices\\n\\nThe most successful developers I've studied aren't competing with AI—they're learning to leverage it effectively.\\n\\nKey strategies for adaptation:\\n- Master prompt engineering for code generation\\n- Focus on high-level design and architecture skills\\n- Develop expertise in AI tool integration\\n- Emphasize code review and quality assurance\\n\\nThe future belongs to developers who can amplify their capabilities through AI collaboration, not those who resist the change.\"\n}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1876,
+      "completion_tokens": 971,
+      "total_tokens": 2847
+    },
+    "system_fingerprint": "fp_abc123def456"
+  },
+  "dalle3_response": {
+    "created": 1705321820,
+    "data": [
+      {
+        "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-example/user-example/img-abc123def456.png?st=2024-01-15T14%3A30%3A20Z&se=2024-01-15T16%3A30%3A20Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=abc123-def4-56gh-7890-ijklmnopqrst&sktid=abc123-def4-56gh-7890-ijklmnopqrst&skt=2024-01-15T14%3A30%3A20Z&ske=2024-01-16T14%3A30%3A20Z&sks=b&skv=2021-08-06&sig=abcdef123456789",
+        "revised_prompt": "A clean, modern illustration representing AI coding assistance. The image features abstract geometric shapes in soft blue (#3B82F6) and orange (#F97316) colors against a clean white (#F8FAFC) background. The design includes subtle representations of code elements like brackets, binary patterns, and flowing data streams, integrated seamlessly with human-like hands or silhouettes to represent collaboration between humans and AI. The overall aesthetic is minimalist, professional, and optimistic, avoiding text overlays while conveying innovation and technological advancement in software development."
+      }
+    ]
+  },
+  "instagram_create_media_response": {
+    "id": "17895695668004550"
+  },
+  "instagram_publish_response": {
+    "id": "17946568921405378"
+  },
+  "facebook_page_post_response": {
+    "id": "105547258304124_122334567890123"
+  },
+  "linkedin_post_response": {
+    "urn": "urn:li:activity:7154123456789012345",
+    "id": "7154123456789012345"
+  },
+  "google_sheets_search_response": {
+    "values": [
+      [
+        "The rise of AI coding assistants and their impact on software development jobs.",
+        "",
+        "",
+        "",
+        "",
+        "Generate Content",
+        ""
+      ]
+    ],
+    "majorDimension": "ROWS",
+    "range": "Sheet1!A5:G5"
+  },
+  "google_sheets_update_response": {
+    "spreadsheetId": "1abc123DEF456ghi789JKL012mno345PQR678stu",
+    "updatedRows": 1,
+    "updatedColumns": 6,
+    "updatedCells": 6,
+    "updatedData": {
+      "values": [
+        [
+          "AI coding assistants are reshaping how we write code...",
+          "AI coding assistants: threat or opportunity? 🤔...", 
+          "AI coding assistants are transforming software development...",
+          "https://oaidalleapiprodscus.blob.core.windows.net/private/org-example/user-example/img-abc123def456.png",
+          "Content Generated",
+          "2024-01-15 14:30:35"
+        ]
+      ],
+      "majorDimension": "ROWS",
+      "range": "Sheet1!B5:G5"
+    }
+  },
+  "error_responses": {
+    "openai_rate_limit": {
+      "error": {
+        "message": "Rate limit reached for gpt-4-1106-preview in organization org-abc123def456 on tokens per min (TPM): Limit 10000, Used 9847, Requested 1153. Please try again in 6s. Visit https://platform.openai.com/account/rate-limits to learn more.",
+        "type": "tokens",
+        "param": null,
+        "code": "rate_limit_exceeded"
+      }
+    },
+    "instagram_invalid_image": {
+      "error": {
+        "message": "The image URL provided is not accessible",
+        "type": "OAuthException",
+        "code": 100,
+        "error_subcode": 2207051,
+        "fbtrace_id": "ABC123def456GHI789jkl"
+      }
+    },
+    "linkedin_timeout": {
+      "error": {
+        "message": "Request timeout",
+        "type": "timeout",
+        "code": 408
+      }
+    },
+    "google_sheets_permission_denied": {
+      "error": {
+        "code": 403,
+        "message": "The caller does not have permission",
+        "errors": [
+          {
+            "message": "The caller does not have permission",
+            "domain": "global",
+            "reason": "forbidden"
+          }
+        ]
+      }
+    }
+  },
+  "make_scenario_execution_summary": {
+    "scenarioId": "abc123",
+    "executionId": "def456ghi789",
+    "status": "success",
+    "startedAt": "2024-01-15T14:30:00.000Z",
+    "finishedAt": "2024-01-15T14:30:35.000Z",
+    "duration": 35000,
+    "operationsUsed": 7,
+    "dataTransferUsed": 2.3,
+    "modules": [
+      {
+        "id": 1,
+        "name": "Google Sheets - Search Rows",
+        "status": "success",
+        "executionTime": 800,
+        "operationsUsed": 1
+      },
+      {
+        "id": 2,
+        "name": "Router",
+        "status": "success",
+        "executionTime": 100,
+        "operationsUsed": 0
+      },
+      {
+        "id": 3,
+        "name": "OpenAI - Create Chat Completion",
+        "status": "success",
+        "executionTime": 12300,
+        "operationsUsed": 1
+      },
+      {
+        "id": 4,
+        "name": "JSON - Parse JSON",
+        "status": "success",
+        "executionTime": 200,
+        "operationsUsed": 1
+      },
+      {
+        "id": 5,
+        "name": "OpenAI - Create Image",
+        "status": "success",
+        "executionTime": 18700,
+        "operationsUsed": 1
+      },
+      {
+        "id": 6,
+        "name": "Google Sheets - Update a Row",
+        "status": "success",
+        "executionTime": 1200,
+        "operationsUsed": 1
+      }
+    ]
+  },
+  "cost_tracking": {
+    "execution_costs": {
+      "openai_gpt4_tokens": {
+        "prompt_tokens": 1876,
+        "completion_tokens": 971,
+        "total_tokens": 2847,
+        "cost_per_1k_prompt": 0.01,
+        "cost_per_1k_completion": 0.03,
+        "total_cost": 0.04781
+      },
+      "dalle3_image": {
+        "images_generated": 1,
+        "cost_per_image": 0.04,
+        "total_cost": 0.04
+      },
+      "make_operations": {
+        "operations_used": 7,
+        "cost_per_operation": 0.001,
+        "total_cost": 0.007
+      },
+      "total_execution_cost": 0.09481
+    }
+  }
+}

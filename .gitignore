@@ -1,0 +1,80 @@
+# API Keys and Secrets
+.env
+.env.local
+.env.production
+*.key
+*.pem
+service-account.json
+credentials.json
+
+# Make.com exports with sensitive data
+*-private.json
+*-with-keys.json
+
+# Operating System
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Node.js (if using for local development)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Python (if using for local scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Local development
+local/
+private/
+secrets/
+
+# Screenshots with sensitive data
+screenshots/*-private.*
+screenshots/*-with-data.*
+
+# Documentation drafts
+*-draft.*
+*-wip.*

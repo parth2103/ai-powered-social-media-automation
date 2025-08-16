@@ -1,0 +1,279 @@
+{
+    "name": "Sheet To Social Media",
+    "flow": [
+        {
+            "id": 1,
+            "module": "google-sheets:SearchRows",
+            "version": 1,
+            "parameters": {
+                "spreadsheet": {
+                    "mode": "select",
+                    "value": "YOUR_SPREADSHEET_ID"
+                },
+                "includesHeaders": true,
+                "sheetName": "Sheet1",
+                "filter": {
+                    "condition": "OR",
+                    "rules": [
+                        {
+                            "field": "{{6}}",
+                            "operator": "equal",
+                            "value": "Generate Content"
+                        },
+                        {
+                            "field": "{{6}}",
+                            "operator": "equal", 
+                            "value": "Create Post"
+                        }
+                    ]
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {}
+            }
+        },
+        {
+            "id": 2,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "parameters": {},
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 3,
+                            "module": "openai-gpt:CreateChatCompletion",
+                            "version": 1,
+                            "parameters": {
+                                "model": "gpt-4-1106-preview",
+                                "messages": [
+                                    {
+                                        "role": "system",
+                                        "content": "You are an automation systems expert who creates platform-optimized social media content. You have a direct, knowledgeable communication style but ONLY share insights based on the specific context provided in the input.\n\nCRITICAL RULES:\n- NEVER fabricate personal experiences beyond what's provided in the input\n- NEVER claim professional expertise you don't have\n- ALWAYS stay within the boundaries of the context given\n- BE AUTHENTIC about your actual experience level\n\nVOICE CHARACTERISTICS:\n- Direct and solution-focused\n- Systems thinker who understands workflows and integrations\n- Honest about learning journey and experience level\n- Collaborative using \"we\" when discussing challenges\n- Focus on actionable insights from study and research\n\nCONTENT APPROACH:\nGenerate platform-optimized content that:\n1. Maintains authenticity and avoids overstating expertise\n2. Focuses on practical value and actionable insights\n3. Adapts tone and format for each platform's audience\n4. Stays grounded in the actual context provided\n\nPLATFORM REQUIREMENTS:\n\nFACEBOOK:\n- Conversational tone that encourages discussion\n- 150 words maximum\n- Include 1-2 relevant emojis\n- End with engaging question or call-to-action\n- Focus on community building and conversation\n\nINSTAGRAM:\n- Visual-focused language that complements imagery\n- 100 words maximum\n- Use 8-12 relevant hashtags\n- Include 3-5 emojis naturally throughout\n- Emphasize visual storytelling\n\nLINKEDIN:\n- Professional, thoughtful tone\n- 200 words maximum\n- Minimal emojis (0-1 max)\n- Use bullet points or short paragraphs for readability\n- Focus on professional insights and industry value\n\nGUIDELINES:\n- Keep content authentic and grounded in provided context\n- Avoid buzzwords and over-hyped language\n- Make content actionable and valuable\n- Maintain consistent voice across platforms while adapting format\n- Focus on helping others learn and grow\n\nRespond with ONLY a JSON object containing the three platform posts."
+                                    },
+                                    {
+                                        "role": "user",
+                                        "content": "{{1.`A (My Idea)`}}"
+                                    }
+                                ],
+                                "response_format": {
+                                    "type": "json_object"
+                                }
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": -150
+                                }
+                            }
+                        },
+                        {
+                            "id": 4,
+                            "module": "json:ParseJSON",
+                            "version": 1,
+                            "parameters": {
+                                "data": "{{3.choices[].message.content}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": -150
+                                }
+                            }
+                        },
+                        {
+                            "id": 5,
+                            "module": "openai-gpt:CreateImage",
+                            "version": 1,
+                            "parameters": {
+                                "prompt": "**Concise Social Media Image Generation Prompt**\n\nGenerate a 1080x1080 pixel square image for social media:\n\n**VISUAL STYLE:**\nClean, modern, approachable design. Minimalist aesthetic with friendly professional edge. Use soft blues (#3B82F6), clean whites (#F8FAFC), and warm orange accents (#F97316).\n\n**DESIGN ELEMENTS:**\n- Simple geometric shapes or subtle gradients\n- Plenty of white space for breathing room\n- Professional yet approachable typography if text is included\n- Avoid clutter - focus on 1-2 key visual elements\n\n**TEXT GUIDELINES:**\n- Minimize text - use only essential keywords or short phrases\n- If text is needed, use clean, modern sans-serif fonts\n- Ensure high contrast for mobile readability\n- Keep text size large enough for small screens\n\n**MOOD:**\nOptimistic, innovative, trustworthy, and accessible. Should feel like content from a knowledgeable professional who shares practical insights.\n\n**CONTENT FOCUS:**\nBased on this topic: {{1.`A (My Idea)`}}\n\nCreate a visually engaging image that subtly represents this concept without being literal or text-heavy. Focus on modern, clean design that would work well across Facebook, Instagram, and LinkedIn.",
+                                "model": "dall-e-3",
+                                "size": "1024x1024",
+                                "quality": "standard",
+                                "style": "vivid"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": 6,
+                            "module": "google-sheets:UpdateRow",
+                            "version": 1,
+                            "parameters": {
+                                "mode": "select",
+                                "spreadsheet": {
+                                    "mode": "select",
+                                    "value": "YOUR_SPREADSHEET_ID"
+                                },
+                                "sheetName": "Sheet1",
+                                "row": "{{1.`__ROW_NUMBER__`}}",
+                                "values": {
+                                    "B": "{{4.Facebook_Post_Content}}",
+                                    "C": "{{4.Instagram_Post_Content}}",
+                                    "D": "{{4.LinkedIn_Post_Content}}",
+                                    "E": "{{5.data[].url}}",
+                                    "F": "Content Generated",
+                                    "G": "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}"
+                                }
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": -75
+                                }
+                            }
+                        }
+                    ],
+                    "filter": {
+                        "name": "Generate Content Route",
+                        "conditions": [
+                            {
+                                "field": "{{1.`F (Control Column)`}}",
+                                "operator": "equal",
+                                "value": "Generate Content"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 7,
+                            "module": "instagram:CreateMediaObject",
+                            "version": 1,
+                            "parameters": {
+                                "account": "YOUR_INSTAGRAM_ACCOUNT_ID",
+                                "image_url": "{{1.`E (Image link)`}}",
+                                "caption": "{{1.`C (Instagram Post Content)`}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": 150
+                                }
+                            }
+                        },
+                        {
+                            "id": 8,
+                            "module": "instagram:PublishMediaObject",
+                            "version": 1,
+                            "parameters": {
+                                "account": "YOUR_INSTAGRAM_ACCOUNT_ID",
+                                "creation_id": "{{7.id}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 150
+                                }
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "module": "facebook:CreatePagePost",
+                            "version": 1,
+                            "parameters": {
+                                "page": "YOUR_FACEBOOK_PAGE_ID",
+                                "message": "{{1.`B (Facebook Post Content)`}}",
+                                "picture": "{{1.`E (Image link)`}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 300
+                                }
+                            }
+                        },
+                        {
+                            "id": 10,
+                            "module": "linkedin:CreatePost",
+                            "version": 1,
+                            "parameters": {
+                                "person": "YOUR_LINKEDIN_PERSON_ID",
+                                "text": "{{1.`D (LinkedIn Post Content)`}}",
+                                "media": [
+                                    {
+                                        "url": "{{1.`E (Image link)`}}",
+                                        "altText": "Social media content image"
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 450
+                                }
+                            }
+                        },
+                        {
+                            "id": 11,
+                            "module": "google-sheets:UpdateRow",
+                            "version": 1,
+                            "parameters": {
+                                "mode": "select",
+                                "spreadsheet": {
+                                    "mode": "select",
+                                    "value": "YOUR_SPREADSHEET_ID"
+                                },
+                                "sheetName": "Sheet1",
+                                "row": "{{1.`__ROW_NUMBER__`}}",
+                                "values": {
+                                    "F": "Posted",
+                                    "G": "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}"
+                                }
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 300
+                                }
+                            }
+                        }
+                    ],
+                    "filter": {
+                        "name": "Create Post Route", 
+                        "conditions": [
+                            {
+                                "field": "{{1.`F (Control Column)`}}",
+                                "operator": "equal",
+                                "value": "Create Post"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us1.make.com"
+    }
+}
